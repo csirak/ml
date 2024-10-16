@@ -1,0 +1,126 @@
+W1013 08:24:23.644000 140001537212864 torch/distributed/run.py:779] 
+W1013 08:24:23.644000 140001537212864 torch/distributed/run.py:779] *****************************************
+W1013 08:24:23.644000 140001537212864 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1013 08:24:23.644000 140001537212864 torch/distributed/run.py:779] *****************************************
+W1013 08:24:26.011000 140001537212864 torch/distributed/elastic/agent/server/api.py:688] Received Signals.SIGINT death signal, shutting down workers
+W1013 08:24:26.012000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285445 closing signal SIGINT
+W1013 08:24:26.013000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285446 closing signal SIGINT
+W1013 08:24:26.013000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285447 closing signal SIGINT
+W1013 08:24:26.013000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285448 closing signal SIGINT
+W1013 08:24:26.013000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285449 closing signal SIGINT
+W1013 08:24:26.013000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285450 closing signal SIGINT
+Traceback (most recent call last):
+  File "/home/ubuntu/gpt2-torch/gpt2.py", line 7, in <module>
+W1013 08:24:26.013000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285451 closing signal SIGINT
+Traceback (most recent call last):
+    from data import DataLoaderLite
+  File "/home/ubuntu/gpt2-torch/gpt2.py", line 7, in <module>
+  File "/home/ubuntu/gpt2-torch/data.py", line 2, in <module>
+    import torch
+  File "/usr/local/lib/python3.10/dist-packages/torch/__init__.py", line 2143, in <module>
+W1013 08:24:26.013000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285452 closing signal SIGINT
+    from data import DataLoaderLite
+  File "/home/ubuntu/gpt2-torch/data.py", line 2, in <module>
+    import torch
+  File "/usr/local/lib/python3.10/dist-packages/torch/__init__.py", line 2143, in <module>
+    from . import _meta_registrations
+  File "/usr/local/lib/python3.10/dist-packages/torch/_meta_registrations.py", line 6178, in <module>
+    from . import _meta_registrations
+  File "/usr/local/lib/python3.10/dist-packages/torch/_meta_registrations.py", line 6178, in <module>
+    activate_meta()
+  File "/usr/local/lib/python3.10/dist-packages/torch/_meta_registrations.py", line 6175, in activate_meta
+    activate_meta()
+  File "/usr/local/lib/python3.10/dist-packages/torch/_meta_registrations.py", line 6134, in activate_meta
+    _meta_lib_dont_use_me_use_register_meta.impl(op_overload, fn)
+  File "/usr/local/lib/python3.10/dist-packages/torch/library.py", line 225, in impl
+    if torch._C._dispatch_has_kernel_for_dispatch_key(
+KeyboardInterrupt
+    if overload_name != '':
+KeyboardInterrupt
+W1013 08:24:28.196000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285445 closing signal SIGTERM
+W1013 08:24:28.196000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285446 closing signal SIGTERM
+W1013 08:24:28.197000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285447 closing signal SIGTERM
+W1013 08:24:28.197000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285448 closing signal SIGTERM
+W1013 08:24:28.197000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285451 closing signal SIGTERM
+W1013 08:24:28.197000 140001537212864 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 285452 closing signal SIGTERM
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/agent/server/api.py", line 680, in run
+    result = self._invoke_run(role)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/agent/server/api.py", line 835, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/api.py", line 79, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 285180 got signal: 2
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+    return f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 255, in launch_agent
+    result = agent.run()
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/metrics/api.py", line 124, in wrapper
+    result = f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/agent/server/api.py", line 689, in run
+    self._shutdown(e.sigval)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/agent/server/local_elastic_agent.py", line 347, in _shutdown
+    self._pcontext.close(death_sig)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/api.py", line 544, in close
+    self._close(death_sig=death_sig, timeout=timeout)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/api.py", line 868, in _close
+    handler.proc.wait(time_to_wait)
+  File "/usr/lib/python3.10/subprocess.py", line 1209, in wait
+    return self._wait(timeout=timeout)
+  File "/usr/lib/python3.10/subprocess.py", line 1953, in _wait
+    time.sleep(delay)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/api.py", line 79, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 285180 got signal: 2
+W1013 08:25:43.185000 139772889653696 torch/distributed/run.py:779] 
+W1013 08:25:43.185000 139772889653696 torch/distributed/run.py:779] *****************************************
+W1013 08:25:43.185000 139772889653696 torch/distributed/run.py:779] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W1013 08:25:43.185000 139772889653696 torch/distributed/run.py:779] *****************************************
+=> calculated gradient accumulation steps: 40
+num decayed parameter tensors: 50, with 124,354,560 parameters
+num non-decayed parameter tensors: 98, with 121,344 parameters
+fusing fused AdamW
+step: 0
+W1013 08:26:11.798000 139772889653696 torch/distributed/elastic/agent/server/api.py:688] Received Signals.SIGHUP death signal, shutting down workers
+W1013 08:26:11.800000 139772889653696 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 291128 closing signal SIGHUP
+W1013 08:26:11.800000 139772889653696 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 291132 closing signal SIGHUP
+W1013 08:26:11.801000 139772889653696 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 291133 closing signal SIGHUP
+W1013 08:26:11.802000 139772889653696 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 291134 closing signal SIGHUP
+W1013 08:26:11.803000 139772889653696 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 291136 closing signal SIGHUP
+W1013 08:26:11.804000 139772889653696 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 291138 closing signal SIGHUP
+W1013 08:26:11.805000 139772889653696 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 291140 closing signal SIGHUP
+W1013 08:26:11.805000 139772889653696 torch/distributed/elastic/multiprocessing/api.py:858] Sending process 291141 closing signal SIGHUP
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 348, in wrapper
+    return f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 901, in main
+    run(args)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/run.py", line 892, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 133, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/launcher/api.py", line 255, in launch_agent
+    result = agent.run()
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/metrics/api.py", line 124, in wrapper
+    result = f(*args, **kwargs)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/agent/server/api.py", line 680, in run
+    result = self._invoke_run(role)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/agent/server/api.py", line 835, in _invoke_run
+    time.sleep(monitor_interval)
+  File "/usr/local/lib/python3.10/dist-packages/torch/distributed/elastic/multiprocessing/api.py", line 79, in _terminate_process_handler
+    raise SignalException(f"Process {os.getpid()} got signal: {sigval}", sigval=sigval)
+torch.distributed.elastic.multiprocessing.api.SignalException: Process 290928 got signal: 1
